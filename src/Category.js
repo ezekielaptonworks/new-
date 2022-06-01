@@ -1,7 +1,11 @@
 import ChevronRight from "@mui/icons-material/ChevronRight";
 import { Box, MenuItem, styled } from "@mui/material";
 import Link from "next/link";
+<<<<<<< HEAD
 import React from "react"; // component props interface
+=======
+import React, { useRef, useState } from "react"; // component props interface
+>>>>>>> category-modified
 
 //styled component
 const Wrapper = styled(Box)(({ theme }) => ({
@@ -31,10 +35,45 @@ const Wrapper = styled(Box)(({ theme }) => ({
 }));
 
 const CategoryMenuItem = ({ href, title, caret, children, ...rest }) => {
+<<<<<<< HEAD
   return (
     <Wrapper>
       <Link href={href} passHref>
         <MenuItem className="category-dropdown-link">
+=======
+
+  const reference = useRef(null);
+  const fullLength = rest.allData.length;
+
+  const mouseEnterHandler = (e) => {
+    const currentElement = e.currentTarget;
+    currentElement.id = rest.id;
+    currentElement.nextSibling.style.display = "block";
+
+    //make display none for all the element except current element below rest.id
+    for (let i = 0; i < rest.id; i++) {
+      const otherElement = document.getElementById(`${i}`);
+      otherElement?.nextSibling.style.display = "none";
+    }
+
+    //make display none for all the element except current element after rest.id
+    for (let j = fullLength; j > rest.id; j--) {
+      const otherElement = document.getElementById(`${j}`);
+      otherElement?.nextSibling.style.display = "none";
+    }
+  }
+
+  //make display none when window is clicked
+  window.addEventListener("click", () => {
+    const currentElement = document.getElementById(`${rest.id}`);
+    currentElement?.nextSibling.style.display = "none";
+  })
+
+  return (
+    <Wrapper>
+      <Link href={href} passHref>
+        <MenuItem className="category-dropdown-link" ref={reference} onMouseEnter={mouseEnterHandler}>
+>>>>>>> category-modified
           {rest.icon && <rest.icon fontSize="small" color="inherit" />}
           <span className="title">{title}</span>
           {caret && <ChevronRight fontSize="small" />}
