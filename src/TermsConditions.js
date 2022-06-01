@@ -8,7 +8,7 @@ export default function TermsConditions() {
                 {NestedData.map((data, index) => <div key={data.heading}>
                     <div>{data.heading}</div>
                     {(!data.modifiedContent && !data.modifiedContentAnother) && <ul>
-                        <li>{data.content}</li>
+                        {data.content.map(content => <li>{content}</li>)}
                     </ul>}
                     {data.modifiedContent?.map(dataMod => <div>
                         <ul>
