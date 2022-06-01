@@ -1,11 +1,7 @@
 import ChevronRight from "@mui/icons-material/ChevronRight";
 import { Box, MenuItem, styled } from "@mui/material";
 import Link from "next/link";
-<<<<<<< HEAD
-import React from "react"; // component props interface
-=======
 import React, { useRef, useState } from "react"; // component props interface
->>>>>>> category-modified
 
 //styled component
 const Wrapper = styled(Box)(({ theme }) => ({
@@ -35,12 +31,6 @@ const Wrapper = styled(Box)(({ theme }) => ({
 }));
 
 const CategoryMenuItem = ({ href, title, caret, children, ...rest }) => {
-<<<<<<< HEAD
-  return (
-    <Wrapper>
-      <Link href={href} passHref>
-        <MenuItem className="category-dropdown-link">
-=======
 
   const reference = useRef(null);
   const fullLength = rest.allData.length;
@@ -73,7 +63,6 @@ const CategoryMenuItem = ({ href, title, caret, children, ...rest }) => {
     <Wrapper>
       <Link href={href} passHref>
         <MenuItem className="category-dropdown-link" ref={reference} onMouseEnter={mouseEnterHandler}>
->>>>>>> category-modified
           {rest.icon && <rest.icon fontSize="small" color="inherit" />}
           <span className="title">{title}</span>
           {caret && <ChevronRight fontSize="small" />}
