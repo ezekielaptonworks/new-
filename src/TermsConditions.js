@@ -5,6 +5,7 @@ export default function TermsConditions() {
     return (
         <>
             <div>
+                <h1>Branch2</h1>
                 {NestedData.map((data, index) => <div key={data.heading}>
                     <div>{data.heading}</div>
                     {(!data.modifiedContent && !data.modifiedContentAnother) && <ul>
